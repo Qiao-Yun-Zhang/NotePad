@@ -34,6 +34,9 @@ namespace NotePad
             this.rtbText = new System.Windows.Forms.RichTextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.listUndo = new System.Windows.Forms.ListBox();
+            this.btnUndo = new System.Windows.Forms.Button();
+            this.btnRedo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnOpen
@@ -63,16 +66,49 @@ namespace NotePad
             this.rtbText.Size = new System.Drawing.Size(469, 396);
             this.rtbText.TabIndex = 2;
             this.rtbText.Text = "";
+            this.rtbText.TextChanged += new System.EventHandler(this.rtbText_TextChanged);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // listUndo
+            // 
+            this.listUndo.FormattingEnabled = true;
+            this.listUndo.ItemHeight = 12;
+            this.listUndo.Location = new System.Drawing.Point(508, 42);
+            this.listUndo.Name = "listUndo";
+            this.listUndo.Size = new System.Drawing.Size(261, 328);
+            this.listUndo.TabIndex = 3;
+            // 
+            // btnUndo
+            // 
+            this.btnUndo.Location = new System.Drawing.Point(174, 13);
+            this.btnUndo.Name = "btnUndo";
+            this.btnUndo.Size = new System.Drawing.Size(75, 23);
+            this.btnUndo.TabIndex = 4;
+            this.btnUndo.Text = "復原上一步";
+            this.btnUndo.UseVisualStyleBackColor = true;
+            this.btnUndo.Click += new System.EventHandler(this.btnUndo_Click);
+            // 
+            // btnRedo
+            // 
+            this.btnRedo.Location = new System.Drawing.Point(255, 12);
+            this.btnRedo.Name = "btnRedo";
+            this.btnRedo.Size = new System.Drawing.Size(75, 23);
+            this.btnRedo.TabIndex = 5;
+            this.btnRedo.Text = "重作下一步";
+            this.btnRedo.UseVisualStyleBackColor = true;
+            this.btnRedo.Click += new System.EventHandler(this.btnRedo_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRedo);
+            this.Controls.Add(this.btnUndo);
+            this.Controls.Add(this.listUndo);
             this.Controls.Add(this.rtbText);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnOpen);
@@ -89,6 +125,9 @@ namespace NotePad
         private System.Windows.Forms.RichTextBox rtbText;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ListBox listUndo;
+        private System.Windows.Forms.Button btnUndo;
+        private System.Windows.Forms.Button btnRedo;
     }
 }
 
